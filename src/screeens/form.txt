@@ -1,0 +1,165 @@
+import {Formik} from 'formik'
+
+
+
+
+
+<View style = {{flex: 1, alignItems: "center", marginTop: 20}}>
+    {/*=========== HEADER ============= */}
+    <Formik
+        initialValues = {{
+            name: "",
+            email : "",
+            address: "",
+            phoneNumber:"",
+            homeAddress : "",
+            religion: "",
+            occupation: "",
+            position: "",
+            officeAddress: "",
+            relationTApp : "",
+            remark: ""
+        }}
+        onSubmit={(values) => {
+            console.log(values);
+        }}
+    >
+        {({ handleChange, handleBlur, handleSubmit, values}) => (
+            <View style={{width: "85%"}}>
+                <MyTextInput
+                    label="Name"
+                    placeholder="Enter guard name..."
+                    placeholderTextColor="#9CA3AF"
+                    onChangeText={handleChange('name')}
+                    onBlur = {handleBlur('name')}
+                    value={values.email}
+                    keyboardType = "default"
+                />
+                <MyTextInput
+                    label="Address"
+                    placeholder="Enter guard address..."
+                    placeholderTextColor="#9CA3AF"
+                    onChangeText={handleChange('address')}
+                    onBlur = {handleBlur('address')}
+                    value={values.address}
+                    keyboardType = "default"
+                    multiline = {true}
+                />
+                <MyTextInput
+                    label="Phone Number"
+                    placeholder="Enter guard mobile number..."
+                    placeholderTextColor="#9CA3AF"
+                    onChangeText={handleChange('phoneNumber')}
+                    onBlur = {handleBlur('phoneNumber')}
+                    value={values.phoneNumber}
+                    keyboardType = "phone-pad"
+                />
+                <MyTextInput
+                    label="Religion"
+                    placeholder="Enter guard religion..."
+                    placeholderTextColor="#9CA3AF"
+                    onChangeText={handleChange('religion')}
+                    onBlur = {handleBlur('religion')}
+                    value={values.religion}
+                    keyboardType = "default"
+                />
+                <MyTextInput
+                    label="Occupation"
+                    placeholder="Enter guard occupation..."
+                    placeholderTextColor="#9CA3AF"
+                    onChangeText={handleChange('occupation')}
+                    onBlur = {handleBlur('occupation')}
+                    value={values.religion}
+                    keyboardType = "default"
+                />
+                <MyTextInput
+                    label="Position"
+                    placeholder="Enter guard position..."
+                    placeholderTextColor="#9CA3AF"
+                    onChangeText={handleChange('postion')}
+                    onBlur = {handleBlur('position')}
+                    value={values.position}
+                    keyboardType = "default"
+                />
+                <MyTextInput
+                    label="Office Address"
+                    placeholder="Enter guard office address..."
+                    placeholderTextColor="#9CA3AF"
+                    onChangeText={handleChange('officeAddress')}
+                    onBlur = {handleBlur('officeAddress')}
+                    value={values.officeAddress}
+                    keyboardType = "default"
+                    multiline = {true}
+                />
+                <MyTextInput
+                    label="Relationship to applicant"
+                    placeholder="Enter guard relationship..."
+                    placeholderTextColor="#9CA3AF"
+                    onChangeText={handleChange('relationTApp')}
+                    onBlur = {handleBlur('relationTApp')}
+                    value={values.relationTApp}
+                    keyboardType = "default"
+                />
+                <MyTextInput
+                    label="Remark"
+                    placeholder="Enter remark..."
+                    placeholderTextColor="#9CA3AF"
+                    onChangeText={handleChange('officeAddress')}
+                    onBlur = {handleBlur('remark')}
+                    value={values.remark}
+                    keyboardType = "default"
+                    multiline = {true}
+                />
+
+                <Pressable style={styles.button2} onPress={handleSubmit}>
+                    <Text style={styles.text}>Submit </Text>
+                </Pressable>
+            </View>
+        )}
+    </Formik>
+</View>
+
+
+
+const MyTextInput = ({label, icon, ...props}) => {
+    return (
+        <View>
+            <Text style={{
+                color: COLORS.black,
+                textAlign: "left",
+                ...FONTS.h3
+            }}>
+                {label}
+            </Text>
+            <TextInput 
+            {...props}
+            style={{
+                backgroundColor: "#F3F5F7",
+                padding: 15,
+                fontSize: 16,
+                borderRadius: 5,
+                marginVertical:3,
+                marginBottom: 20,
+            }}/>
+        </View>
+    )
+}
+
+
+//styles
+button2: {
+    backgroundColor: COLORS.blue,
+    height: 55,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: SIZES.radius,
+    marginBottom: 30
+},
+text: {
+    color: COLORS.white,
+    fontSize: 20,
+    fontFamily: "Poppins-Regular",
+    fontWeight: "700",
+    letterSpacing: .7
+}
+
